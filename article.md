@@ -34,25 +34,25 @@ Set your buffer sizes and delivery intervals based on your use case. A balance b
 ### Step 3: Storing Data in the Industrial Data Lake
 Next, we land the data in a lake --- structured to support both immediate analysis and long-term retention.
 
-- **Amazon S3 (Raw Zone):** Store raw, unprocessed data in an organized format, with prefix-based folders and lifecycle policies.
-- **Amazon S3 (Clean Zone):** Store enriched and validated data. Use partitioning strategies to enable faster querying by Redshift or Athena.
-- **Amazon S3 Glacier:** Archive data after 90 days or based on business needs using lifecycle rules.
-- **Amazon DynamoDB:** For data requiring low-latency access (e.g., equipment status or operator feedback), configure structured, indexed storage in DynamoDB.
+- Amazon S3 (Raw Zone): Store raw, unprocessed data in an organized format, with prefix-based folders and lifecycle policies.
+- Amazon S3 (Clean Zone): Store enriched and validated data. Use partitioning strategies to enable faster querying by Redshift or Athena.
+- Amazon S3 Glacier: Archive data after 90 days or based on business needs using lifecycle rules.
+- Amazon DynamoDB: For data requiring low-latency access (e.g., equipment status or operator feedback), configure structured, indexed storage in DynamoDB.
 
 The goal is modularity: one tier for raw intake, one for clean analysis, one for archival, and one for instant access.
 
 ### Step 4: BI Reporting and Analytics
 Once the lake is in place, the pipeline shifts to value extraction.
 
-- **Amazon Redshift** serves as the data warehouse, running ETL processes and supporting complex analytics. Tune queries and optimize tables to support large-scale reporting.
-- **Amazon Managed Grafana** builds live dashboards using Redshift and other sources. This is your BI layer --- a visual interface for trends, KPIs, and performance metrics.
+- Amazon Redshift serves as the data warehouse, running ETL processes and supporting complex analytics. Tune queries and optimize tables to support large-scale reporting.
+- Amazon Managed Grafana builds live dashboards using Redshift and other sources. This is your BI layer --- a visual interface for trends, KPIs, and performance metrics.
 
 Keep dashboards current with a 10-minute refresh interval, which gives stakeholders timely data without overloading the system.
 
 ### Step 5: Real Time Operational Metrics and Monitoring
 BI dashboards tell the strategic story. But operators need visibility in the moment.
 
-We can use **InfluxDB** on **Amazon EKS** for high-resolution, time-stamped data.
+We can use InfluxDB on Amazon EKS for high-resolution, time-stamped data.
 
 Grafana (also on EKS) builds dashboards for operational metrics like temperature, vibration, or system load. These dashboards update every minute and include alerting rules for critical thresholds.
 
