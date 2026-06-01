@@ -11,14 +11,7 @@ We'll walk through an end-to-end architecture for Industrial IoT analytics using
 
 <figcaption><em>Full-stack Industrial IoT Analytics Architecture with Edge, Cloud, and Operational Dashboards</em></figcaption>
 
-## About
 
-Place the code for this article in this repository.
-The original article export is saved as `article.md`.
-
-## Files
-
-Add your `.ipynb`, `.py`, `.yaml`, `.js`, `.ts`, or other project files here.
 
 ## Disclaimer
 
